@@ -18,5 +18,18 @@ const result = document.querySelector(".lorem-text");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-console.log("hello");
-})
+  const value = parseInt(amount.value);
+  const random = Math.floor(Math.random() * text.length);
+  //empty
+  //-1
+  //> 9
+
+  if(isNaN(value) || value <= 0 || value > 9) {
+    result.innerHTML = `<p class="result">${text[random]}</p>`
+  }
+  else{
+    let tempText = text.slice(0, value);
+    tempText = tempText.map((item) => `<p class="result">${item}</p>`);
+    result.innerHTML = tempText.join('');
+  }
+});
